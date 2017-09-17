@@ -51,7 +51,6 @@ for key in itemset.keys():
 		frequentItems[key] = newitemset[key]
 
 itemset = dict(newitemset)
-#print itemset
 
 #for double elements
 if len(itemset.keys()) > 0:
@@ -67,19 +66,14 @@ if len(itemset.keys()) > 0:
 
 	for key in sorted(newitemset.keys()):
 		if newitemset[key] >= float(configdata['support'])*len(transactions):
-			print key
-			print newitemset[key]
 			frequentItems[key] = newitemset[key]
 		else:
 			newitemset.pop(key, None)
 	
-	#print newitemset
 	if configdata["flag"] == "1":
 		getConfidence(newitemset)
 
 	itemset = dict(newitemset)
-#for key in itemset.keys():
-	#print key + " => " + str(itemset[key])
 
 while len(itemset.keys()) > 0:
 	newitemset = {}
